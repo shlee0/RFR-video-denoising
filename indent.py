@@ -37,6 +37,9 @@ from models.denoising import Denoising
 from utils import get_all_img_paths, save_png, make_dir, get_frame_paths, get_folder_img_name
 
 
+if 1:
+	print ("indent")
+
 
 
 
