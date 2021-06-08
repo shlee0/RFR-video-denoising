@@ -19,29 +19,6 @@ def get_all_img_paths(root_path):
 				paths.append(path)
 	return sorted(paths)
 
-def get_frame_paths(paths):
-	ret = []
-	tmp_s = set()
-
-	for p in paths:
-		frame_dir_path = os.path.dirname(p)
-		file_name = os.path.basename(p)
-
-		if not frame_dir_path in tmp_s:
-			tmp_s.add(frame_dir_path)
-			ret.append([frame_dir_path, []])
-
-		ret[-1][1].append(file_name)
-	return ret
-
-def get_folder_img_name(img_path):
-	img_path = os.path.abspath(img_path)
-	img_path_split = img_path.split('/')
-	folder_name = img_path_split[-2]
-	img_name = img_path_split[-1]
-	img_name = os.path.splitext(img_name)[0]
-	return folder_name, img_name
-
 def save_png(img, path):
 	if type(img) != Image.Image:
 		img = transforms.ToPILImage()(img)

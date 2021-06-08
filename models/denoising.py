@@ -1,21 +1,15 @@
-import os
 import torch
-from ignite.metrics import Average
 from piq import psnr, ssim
 
-from .baseModel import BaseModel
 
-class Denoising(BaseModel):
+class Denoising(torch.nn.Module):
 	def __init__(self, denoiser, criterion=None, optimizer=None):
-		super(Denoising, self).__init__('Denoising')
+		super(Denoising, self).__init__()
 
 		self.denoiser = denoiser
 		self.criterion = criterion
 		self.optimizer = optimizer
-		self.metrics = {
-			'psnr' : Average(),
-			'ssim' : Average()
-		}
+
 
 	@torch.no_grad()
 	def evaluate(self, clean, denoised, device):
@@ -42,14 +36,6 @@ class Denoising(BaseModel):
 
 	def forward(self, input_dict, device):
 		return self.denoiser(input_dict, device)
-
-
-	def save(self, dir_name='', file_name=None):
-		self.denoiser.save(dir_name, file_name)
-
-
-	def load(self, dir_name='', file_name=None):
-		self.denoiser.load(dir_name, file_name)
 
 
 	def get_log_path(self):
