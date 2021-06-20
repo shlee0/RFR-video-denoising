@@ -4,7 +4,7 @@ import os, argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=str, default='0')
 parser.add_argument('--net', type=str, choices=['vnlnet', 'fastdvdnet', 'dncnn'], required=True)
-parser.add_argument('--video_dir', type=str, default='/home/shlee/dataset/derf_HD/crowd_run_1080p50')
+parser.add_argument('--video_dir', type=str, default='./testsets/derf_HD/factory_1080p30')
 parser.add_argument('--sigma', type=int, choices=[15, 25, 40], default=25)
 parser.add_argument('--online', action='store_true')
 parser.add_argument('--offline', action='store_true')
@@ -84,7 +84,6 @@ model = Denoising(denoiser, criterion, optimizer)
 
 
 
-		# 	m.train()
 
 def gaussian_noisy(x, std):
 	y = x + torch.distributions.normal.Normal(0, std / 255).sample(x.shape)
