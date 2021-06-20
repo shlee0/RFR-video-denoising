@@ -19,13 +19,17 @@ In this study, we propose a self-supervised video denoising method called "resto
 
 ### Examples of demo codes
 
-Arguments
+**Arguments**
 ```
 --video_dir: Path of test video frames
 --sigma: Gaussian noise level, one of [15, 25, 40]
 --online: Run RFR in online mode
 --offline: Run RFR in offline mode
 ```
+
+
+#### Baseline denoising networks
+
 
 1. [DnCNN](https://github.com/SaoYan/DnCNN-PyTorch)
 - Only for grayscale video frames
