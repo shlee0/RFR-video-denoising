@@ -29,7 +29,7 @@ Arguments
 
 1. [DnCNN](https://github.com/SaoYan/DnCNN-PyTorch)
 - Only for grayscale video frames
-- We provide a single video in this repository (i.e., factory_1080p30 below)
+- We provide a single video in this repository (i.e., factory_1080p30)
 ```
 python run_rfr.py --gpu 0 --net dncnn --video_dir ./testsets/derf_HD/factory_1080p30 --sigma 25 --online
 ```
